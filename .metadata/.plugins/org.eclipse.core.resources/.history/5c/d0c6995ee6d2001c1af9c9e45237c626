@@ -1,0 +1,8 @@
+package Classes;
+
+public class Teste {
+	public static void main(String[] args) {
+		Livro oLivro = new Livro();
+		oLivro.cadastrar();
+	}
+}

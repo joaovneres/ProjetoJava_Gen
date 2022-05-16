@@ -1,0 +1,63 @@
+package Classes;
+
+
+public class Funcionario extends Pessoa {
+	private int idFuncionario;
+	private String setor;
+	private double salario;
+
+	public Funcionario(String nome, int idade, String cpf, String telefone, int idFuncionario, String setor,
+			double salario) {
+		super(nome, idade, cpf, telefone);
+		this.idFuncionario = idFuncionario;
+		this.setor = setor;
+		this.salario = salario;
+	}
+
+	public Funcionario() {
+		super();
+		this.idFuncionario = 0;
+		this.setor = null;
+		this.salario = 0;
+	}
+
+	@Override
+	public void cadastrar(Object objeto) {
+
+	}
+
+	@Override
+	public void imprimirInfo() {
+
+	}
+	
+	@Override
+	public void listar() {
+		
+	}
+
+	public int getIdFuncionario() {
+		return idFuncionario;
+	}
+
+	public void setIdFuncionario(int idFuncionario) {
+		this.idFuncionario = idFuncionario;
+	}
+
+	public String getSetor() {
+		return setor;
+	}
+
+	public void setSetor(String setor) {
+		this.setor = setor;
+	}
+
+	public double getSalario() {
+		return salario;
+	}
+
+	public void setSalario(double salario) {
+		this.salario = salario;
+	}
+
+}

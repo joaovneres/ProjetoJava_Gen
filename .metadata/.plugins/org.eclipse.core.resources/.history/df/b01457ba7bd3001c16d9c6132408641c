@@ -1,0 +1,14 @@
+package Classes;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Teste {
+	public static void main(String[] args) {
+		Aluno oAluno = new Aluno();
+		List<Aluno> listaA = new ArrayList<>();
+		oAluno.cadastrar(oAluno, listaA);
+		oAluno.imprimirInfo(oAluno);
+		oAluno.listar(listaA);
+	}
+}

@@ -1,0 +1,79 @@
+package Classes;
+
+import java.util.List;
+import java.util.Scanner;
+
+public class Doador extends Pessoa {
+	private String tipoLivro;
+	private int qtdLivro;
+	private String nomeLivro;
+
+	public Doador(String nome, int idade, String cpf, String telefone, String tipoLivro, int qtdLivro,
+			String nomeLivro) {
+		super(nome, idade, cpf, telefone);
+		this.tipoLivro = tipoLivro;
+		this.qtdLivro = qtdLivro;
+		this.nomeLivro = nomeLivro;
+	}
+
+	public Doador() {
+		super();
+		this.tipoLivro = null;
+		this.qtdLivro = 0;
+		this.nomeLivro = null;
+	}
+
+	public void cadastrar(Doador objeto, List<Doador> listaD) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("\nDigite o nome do doadore: ");
+		objeto.setNome(scan.next());
+		System.out.println("\nDigite a idade do doadore: ");
+		objeto.setIdade(scan.nextInt());
+		System.out.println("\nDigite o CPF do doadore: ");
+		objeto.setCpf(scan.next());
+		System.out.println("\nDigite o telefone do doadore: ");
+		objeto.setTelefone(scan.next());
+		System.out.println("\nDigite o tipo do livro: ");
+		objeto.setTipoLivro(scan.next());
+		System.out.println("\nDigite a quantidade de livros nesta doação: ");
+		objeto.setQtdLivro(scan.nextInt());
+		System.out.println("\nDigite o nome do livro: ");
+		objeto.setNomeLivro(scan.next());
+		listaD.add(objeto);
+	}
+
+	@Override
+	public void imprimirInfo() {
+
+	}
+	
+	@Override
+	public void listar() {
+		
+	}
+
+	public String getTipoLivro() {
+		return tipoLivro;
+	}
+
+	public void setTipoLivro(String tipoLivro) {
+		this.tipoLivro = tipoLivro;
+	}
+
+	public int getQtdLivro() {
+		return qtdLivro;
+	}
+
+	public void setQtdLivro(int qtdLivro) {
+		this.qtdLivro = qtdLivro;
+	}
+
+	public String getNomeLivro() {
+		return nomeLivro;
+	}
+
+	public void setNomeLivro(String nomeLivro) {
+		this.nomeLivro = nomeLivro;
+	}
+
+}

@@ -1,0 +1,65 @@
+package Classes;
+
+import Classe.Livro;
+import Classe.Pessoa;
+
+public class Doador extends Pessoa {
+	private String tipoLivro;
+	private int qtdLivro;
+	private Livro nomeLivro;
+
+	public Doador(String nome, int idade, String cpf, String telefone, String tipoLivro, int qtdLivro,
+			Livro nomeLivro) {
+		super(nome, idade, cpf, telefone);
+		this.tipoLivro = tipoLivro;
+		this.qtdLivro = qtdLivro;
+		this.nomeLivro = nomeLivro;
+	}
+
+	public Doador() {
+		super();
+		this.tipoLivro = null;
+		this.qtdLivro = 0;
+		this.nomeLivro = null;
+	}
+
+	@Override
+	public void cadastrar() {
+
+	}
+
+	@Override
+	public void imprimirInfo() {
+
+	}
+	
+	@Override
+	public void listar() {
+		
+	}
+
+	public String getTipoLivro() {
+		return tipoLivro;
+	}
+
+	public void setTipoLivro(String tipoLivro) {
+		this.tipoLivro = tipoLivro;
+	}
+
+	public int getQtdLivro() {
+		return qtdLivro;
+	}
+
+	public void setQtdLivro(int qtdLivro) {
+		this.qtdLivro = qtdLivro;
+	}
+
+	public Livro getNomeLivro() {
+		return nomeLivro;
+	}
+
+	public void setNomeLivro(Livro nomeLivro) {
+		this.nomeLivro = nomeLivro;
+	}
+
+}

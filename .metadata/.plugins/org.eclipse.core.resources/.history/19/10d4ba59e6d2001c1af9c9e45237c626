@@ -1,0 +1,120 @@
+package Classes;
+
+import java.util.Scanner;
+
+public class Livro {
+	private int idLivro;
+	private String nome;
+	private int anoPublicacao;
+	private String editora;
+	private String autor;
+	private Doador doador;
+	private Aluno alunoResponsavel;
+
+	public Livro(int idLivro, String nome, int anoPublicacao, String editora, String autor, Doador doador,
+			Aluno alunoResponsavel) {
+		this.idLivro = idLivro;
+		this.nome = nome;
+		this.anoPublicacao = anoPublicacao;
+		this.editora = editora;
+		this.autor = autor;
+		this.doador = doador;
+		this.alunoResponsavel = alunoResponsavel;
+	}
+
+	public Livro() {
+		this.idLivro = 0;
+		this.nome = null;
+		this.anoPublicacao = 0;
+		this.editora = null;
+		this.autor = null;
+		this.doador = null;
+		this.alunoResponsavel = null;
+	}
+
+	public void cadastrar() {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("\nId do livro: ");
+		setIdLivro(idLivro);
+		System.out.println("\nNome do livro: ");
+		setNome(nome);
+		System.out.println("\nAno publicação do livro: ");
+		setAnoPublicacao(anoPublicacao);
+		System.out.println("\nEditora: ");
+		setEditora(editora);
+		System.out.println("\nAutor: ");
+		setAutor(autor);
+		System.out.println("\nDoador: ");
+		setDoador(doador);
+		System.out.println("\nAluno responsável: ");
+		setAlunoResponsavel(alunoResponsavel);
+		System.out.println("Cadastrado com sucesso");
+	}
+
+	public void imprimirInfo() {
+		System.out.println("\nId do livro: " + idLivro + "\nNome do livro: " + nome + "\nAno de publicação do livro: "
+				+ anoPublicacao + "\nEditora do livro: " + editora + "\nAutor do livro: " + autor
+				+ "\nDoador do livro: " + doador + "\nAluno responsável: " + alunoResponsavel);
+	}
+	
+	public void listarLivros() {
+		
+	}
+
+	public int getIdLivro() {
+		return idLivro;
+	}
+
+	public void setIdLivro(int idLivro) {
+		this.idLivro = idLivro;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public int getAnoPublicacao() {
+		return anoPublicacao;
+	}
+
+	public void setAnoPublicacao(int anoPublicacao) {
+		this.anoPublicacao = anoPublicacao;
+	}
+
+	public String getEditora() {
+		return editora;
+	}
+
+	public void setEditora(String editora) {
+		this.editora = editora;
+	}
+
+	public String getAutor() {
+		return autor;
+	}
+
+	public void setAutor(String autor) {
+		this.autor = autor;
+	}
+
+	public Doador getDoador() {
+		return doador;
+	}
+
+	public void setDoador(Doador doador) {
+		this.doador = doador;
+	}
+
+	public Aluno getAlunoResponsavel() {
+		return alunoResponsavel;
+	}
+
+	public void setAlunoResponsavel(Aluno alunoResponsavel) {
+		this.alunoResponsavel = alunoResponsavel;
+	}
+
+}

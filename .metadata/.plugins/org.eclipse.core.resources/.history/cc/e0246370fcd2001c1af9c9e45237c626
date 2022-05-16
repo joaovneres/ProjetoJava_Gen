@@ -1,0 +1,82 @@
+package Classes;
+
+import java.util.List;
+import java.util.Scanner;
+
+public class Funcionario extends Pessoa {
+	private int idFuncionario;
+	private String setor;
+	private double salario;
+
+	public Funcionario(String nome, int idade, String cpf, String telefone, int idFuncionario, String setor,
+			double salario) {
+		super(nome, idade, cpf, telefone);
+		this.idFuncionario = idFuncionario;
+		this.setor = setor;
+		this.salario = salario;
+	}
+
+	public Funcionario() {
+		super();
+		this.idFuncionario = 0;
+		this.setor = null;
+		this.salario = 0;
+	}
+
+	public void cadastrar(Funcionario objeto, List<Funcionario> listaF) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("\nDigite o nome do funcionárie: ");
+		objeto.setNome(scan.next());
+		System.out.println("\nDigite a idade do funcionárie: ");
+		objeto.setIdade(scan.nextInt());
+		System.out.println("\nDigite o CPF do funcionárie: ");
+		objeto.setCpf(scan.next());
+		System.out.println("\nDigite o telefone do funcionárie: ");
+		objeto.setTelefone(scan.next());
+		System.out.println("\nDigite o Id do funcionárie: ");
+		objeto.setIdFuncionario(scan.nextInt());
+		System.out.println("\nDigite o setor do funcionárie: ");
+		objeto.setSetor(scan.next());
+		System.out.println("\nDigite o salário do funcionárie: ");
+		objeto.setSalario(scan.nextDouble());
+		listaF.add(objeto);
+	}
+
+
+	public void imprimirInfo() {
+		System.out.println("\nId do livro: " + idLivro + "\nNome do livro: " + nome + "\nAno de publicação do livro: "
+				+ anoPublicacao + "\nEditora do livro: " + editora + "\nAutore do livro: " + autor
+				+ "\nDoadore do livro: " + doador + "\nAlune responsável: " + alunoResponsavel);
+
+	}
+	
+	@Override
+	public void listar() {
+		
+	}
+
+	public int getIdFuncionario() {
+		return idFuncionario;
+	}
+
+	public void setIdFuncionario(int idFuncionario) {
+		this.idFuncionario = idFuncionario;
+	}
+
+	public String getSetor() {
+		return setor;
+	}
+
+	public void setSetor(String setor) {
+		this.setor = setor;
+	}
+
+	public double getSalario() {
+		return salario;
+	}
+
+	public void setSalario(double salario) {
+		this.salario = salario;
+	}
+
+}
