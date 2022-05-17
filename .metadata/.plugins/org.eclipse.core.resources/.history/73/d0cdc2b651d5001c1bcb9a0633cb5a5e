@@ -1,0 +1,83 @@
+package Classes;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class MenuFunc2 {
+	public static void main(String args[]) {
+		Aluno oAluno = new Aluno();
+		Doador oDoador = new Doador();
+		Funcionario oFuncionario = new Funcionario();
+		Livro oLivro = new Livro();
+		List<Aluno> listaA = new ArrayList<Aluno>();
+		List<Object> listaD = new ArrayList<>();
+		List<Object> listaF = new ArrayList<>();
+		List<Object> listaL = new ArrayList<>();
+		int x = 0, y = 0;
+		Scanner scan = new Scanner(System.in);
+		do {
+			System.out.println("\n****Menu do Funcionário****");
+			System.out.println("\n(1)Consultas.\n(2)Cadastros.\n(0)Para sair do sistema.\nEscolha uma opção: ");
+			y = scan.nextInt();
+			switch (y) {
+			case 1:
+				System.out.println("\nEscolha uma opção de consulta entre 1 à 4.\n" + "1-Consulta do Alune.\n"
+						+ "2-Consulta do Doador.\n" + "3-Consulta do Funcionário.\n" + "4-Consulta do Livro.\n"
+						+ "0-Voltar.\n");
+				x = scan.nextInt();
+				switch (x) {
+				case 1:
+					System.out.println(oAluno);
+					break;
+				case 2:
+					oDoador.listar(listaD);
+					break;
+				case 3:
+					oFuncionario.listar(listaF);
+					break;
+				case 4:
+					oLivro.listarLivros(listaL);
+					break;
+				default:
+					if (x != 0)
+						System.out.println("Opção inválida!");
+				}
+				while (x != 0)
+					;
+				break;
+			case 2:
+				do {
+
+					System.out.println("\nEscolha uma opção de cadastramento entre 1 à 4.\n" + "1-Cadastro do Alune.\n"
+							+ "2-Cadastro do Doador.\n" + "3-Cadastro do Funcionário.\n" + "4-Cadastro do Livro.\n"
+							+ "0-Voltar.\n");
+					x = scan.nextInt();
+					switch (x) {
+					case 1:
+						oAluno.cadastrar(oAluno, listaA);
+						break;
+					case 2:
+						oDoador.cadastrar(oDoador, listaD);
+						break;
+					case 3:
+						oFuncionario.cadastrar(oFuncionario, listaF);
+						break;
+					case 4:
+						oLivro.cadastrar(oLivro, listaL);
+						break;
+					default:
+						if (x != 0)
+							System.out.println("Opção inválida!");
+
+					}
+				} while (x != 0);
+				break;
+			default:
+				System.out.println("Opção inválida!");
+			}
+
+		} while (y != 0);
+	}
+
+}

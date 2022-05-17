@@ -1,0 +1,82 @@
+package Classes;
+
+import java.util.List;
+import java.util.Scanner;
+
+public class Aluno extends Pessoa {
+	private int raAluno;
+	private String colegio;
+
+	public Aluno(int idPessoa, String nome, int idade, String cpf, String telefone, int raAluno, String colegio) {
+		super(idPessoa, nome, idade, cpf, telefone);
+		this.raAluno = raAluno;
+		this.colegio = colegio;
+	}
+
+	public Aluno() {
+		super();
+		this.raAluno = 0;
+		this.colegio = null;
+	}
+
+	public void cadastrar(List<Aluno> listaA) {
+		Aluno objeto = new Aluno();
+		Scanner scan = new Scanner(System.in);
+		for (int i = 0; i < listaA.size(); i++) {
+			objeto.setIdPessoa(i++);
+		}
+		objeto.setIdPessoa(scan.nextInt());
+		System.out.println("\nDigite o nome do alune: ");
+		objeto.setNome(scan.next());
+		System.out.println("\nDigite a idade do alune: ");
+		objeto.setIdade(scan.nextInt());
+		System.out.println("\nDigite o CPF do alune: ");
+		objeto.setCpf(scan.next());
+		System.out.println("\nDigite o telefone do alune: ");
+		objeto.setTelefone(scan.next());
+		System.out.println("\nDigite o RA do alune: ");
+		objeto.setRaAluno(scan.nextInt());
+		System.out.println("\nDigite o colégio do alune: ");
+		objeto.setColegio(scan.next());
+		listaA.add(objeto);
+	}
+
+	public void consultar(List<Aluno> listaA, int index) {
+		index--;
+		System.out.println("-----------------------------------------");
+		System.out.println("\nId do alune: " + listaA.get(index).getIdPessoa() + "\nNome do alune: "
+				+ listaA.get(index).getNome() + "\nIdade do alune: " + listaA.get(index).getIdade() + "\nCPF do alune: "
+				+ listaA.get(index).getCpf() + "\nTelefone do alune: " + listaA.get(index).getTelefone()
+				+ "\nRA do alune: " + listaA.get(index).getRaAluno() + "\nColégio do alune: "
+				+ listaA.get(index).getColegio());
+		System.out.println("-----------------------------------------");
+	}
+
+	public void listar(List<Aluno> listaA) {
+		for (Aluno in : listaA) {
+			System.out.println("-----------------------------------------");
+			System.out.println("Id: " + in.getIdPessoa());
+			System.out.println("Nome: " + in.getNome());
+			System.out.println("Idade: " + in.getIdade());
+			System.out.println("RA aluno: " + in.getRaAluno());
+			System.out.println("-----------------------------------------");
+		}
+	}
+
+	public int getRaAluno() {
+		return raAluno;
+	}
+
+	public void setRaAluno(int raAluno) {
+		this.raAluno = raAluno;
+	}
+
+	public String getColegio() {
+		return colegio;
+	}
+
+	public void setColegio(String colegio) {
+		this.colegio = colegio;
+	}
+
+}

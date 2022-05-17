@@ -1,5 +1,6 @@
 package Classes;
 
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,38 +21,151 @@ public class Funcionario extends Pessoa {
 		this.salario = 0;
 	}
 
-	public void cadastrar(Funcionario objeto, List<Object> listaF) {
-		Scanner scan = new Scanner(System.in);
-		System.out.println("\nDigite o id do funcionárie: ");
-		objeto.setIdPessoa(scan.nextInt());
-		System.out.println("\nDigite o nome do funcionárie: ");
-		objeto.setNome(scan.next());
-		System.out.println("\nDigite a idade do funcionárie: ");
-		objeto.setIdade(scan.nextInt());
-		System.out.println("\nDigite o CPF do funcionárie: ");
-		objeto.setCpf(scan.next());
-		System.out.println("\nDigite o telefone do funcionárie: ");
-		objeto.setTelefone(scan.next());
-		System.out.println("\nDigite o setor do funcionárie: ");
-		objeto.setSetor(scan.next());
-		System.out.println("\nDigite o salário do funcionárie: ");
-		objeto.setSalario(scan.nextDouble());
-		listaF.add(objeto);
-	}
-
-	public void imprimirInfo(Funcionario objeto) {
-		System.out.println("\nId do funcionárie: " + objeto.getIdPessoa() + "\nNome do funcionárie: " + objeto.getNome()
-				+ "\nIdade do funcionárie: " + objeto.getIdade() + "\nCPF do funcionárie: " + objeto.getCpf()
-				+ "\nTelefone do funcionárie: " + objeto.getTelefone() + "\nSetor do funcionárie: " + objeto.getSetor()
-				+ "\nSalário do funcionarie: " + objeto.getSalario());
-
-	}
-
-	@Override
-	public void listar(List<Object> listaF) {
-		for (int i = 0; i < listaF.size(); i++) {
-			System.out.println("\nFuncionare " + (i + 1) + ": " + listaF.get(i));
+	public void cadastrar(List<Funcionario> listaF) {
+		while (true) {
+			try {
+				Funcionario objeto = new Funcionario();
+				Scanner scan = new Scanner(System.in);
+				System.out.println("\nDigite o id do funcionarie: ");
+				objeto.setIdPessoa(scan.nextInt());
+				System.out.println("\nDigite o nome do funcionárie: ");
+				objeto.setNome(scan.next());
+				System.out.println("\nDigite a idade do funcionárie: ");
+				objeto.setIdade(scan.nextInt());
+				System.out.println("\nDigite o CPF do funcionárie: ");
+				objeto.setCpf(scan.next());
+				System.out.println("\nDigite o telefone do funcionárie: ");
+				objeto.setTelefone(scan.next());
+				System.out.println("\nDigite o setor do funcionárie: ");
+				objeto.setSetor(scan.next());
+				System.out.println("\nDigite o salário do funcionárie: ");
+				objeto.setSalario(scan.nextDouble());
+				listaF.add(objeto);
+				System.out.println("Cadastrado com sucesso");
+				break;
+			} catch (InputMismatchException ex) {
+				System.err.println("Caractere não válido, digite um número.");
+				continue;
+			}
 		}
+	}
+
+	public void consultar(List<Funcionario> listaF) {
+		while (true) {
+			try {
+				Scanner scan = new Scanner(System.in);
+				int index;
+				System.out.println("\nQual posição você deseja consultar?");
+				index = scan.nextInt();
+				System.out.println("-----------------------------------------");
+				System.out.println("\nId do funcionarie: " + listaF.get(index).getIdPessoa() + "\nNome do funcionarie: "
+						+ listaF.get(index).getNome() + "\nIdade do funcionarie: " + listaF.get(index).getIdade()
+						+ "\nCPF do funcionarie: " + listaF.get(index).getCpf() + "\nTelefone do funcionarie: "
+						+ listaF.get(index).getTelefone() + "\nSetor: " + listaF.get(index).getSetor() + "\nSalário: "
+						+ listaF.get(index).getSalario());
+				System.out.println("-----------------------------------------");
+				break;
+			} catch (InputMismatchException ex) {
+				System.err.println("Caractere não válido, digite um número.");
+				continue;
+			}
+		}
+	}
+
+	public void listar(List<Funcionario> listaF) {
+		int contador = 0;
+		for (Funcionario in : listaF) {
+			System.out.println("-----------------------------------------");
+			System.out.println("Posição: " + contador);
+			System.out.println("Id: " + in.getIdPessoa());
+			System.out.println("Nome: " + in.getNome());
+			System.out.println("Idade: " + in.getIdade());
+			System.out.println("Setor: " + in.getSetor());
+			System.out.println("-----------------------------------------");
+			contador++;
+		}
+	}
+
+	public void excluir(List<Funcionario> listaF) {
+		while (true) {
+			try {
+				Scanner scan = new Scanner(System.in);
+				int index, i;
+				System.out.println("\nQual posição você deseja remover?");
+				index = scan.nextInt();
+				System.out.println("-----------------------------------------");
+				System.out.println("\nId do funcionarie: " + listaF.get(index).getIdPessoa() + "\nNome do funcionarie: "
+						+ listaF.get(index).getNome() + "\nIdade do funcionarie: " + listaF.get(index).getIdade()
+						+ "\nCPF do funcionarie: " + listaF.get(index).getCpf() + "\nTelefone do funcionarie: "
+						+ listaF.get(index).getTelefone() + "\nSetor: " + listaF.get(index).getSetor() + "\nSalário: "
+						+ listaF.get(index).getSalario());
+				System.out.println("-----------------------------------------");
+				System.out.println("\nDeseja remover este mesmo?");
+				System.out.println("\n(1)Sim");
+				System.out.println("\n(2)Não");
+				i = scan.nextInt();
+				if (i == 1) {
+					listaF.remove(index);
+					System.out.println("Excluído com sucesso");
+					break;
+				} else if (i != 1 && i != 2) {
+					System.out.println("\nOpção inválida.");
+				}
+			} catch (InputMismatchException ex) {
+				System.err.println("Caractere não válido, digite um número.");
+				continue;
+			}
+		}
+
+	}
+
+	public void alterar(List<Funcionario> listaF) {
+		while (true) {
+			try {
+				Scanner scan = new Scanner(System.in);
+				int index, i;
+				System.out.println("\nQual posição você deseja alterar?");
+				index = scan.nextInt();
+				System.out.println("-----------------------------------------");
+				System.out.println("\nId do funcionarie: " + listaF.get(index).getIdPessoa() + "\nNome do funcionarie: "
+						+ listaF.get(index).getNome() + "\nIdade do funcionarie: " + listaF.get(index).getIdade()
+						+ "\nCPF do funcionarie: " + listaF.get(index).getCpf() + "\nTelefone do funcionarie: "
+						+ listaF.get(index).getTelefone() + "\nSetor: " + listaF.get(index).getSetor() + "\nSalário: "
+						+ listaF.get(index).getSalario());
+				System.out.println("-----------------------------------------");
+				System.out.println("\nDeseja alterar este mesmo?");
+				System.out.println("\n(1)Sim");
+				System.out.println("\n(2)Não");
+				i = scan.nextInt();
+				if (i == 1) {
+					Funcionario objeto = new Funcionario();
+					System.out.println("\nDigite o id do funcionarie: ");
+					objeto.setIdPessoa(scan.nextInt());
+					System.out.println("\nDigite o nome do funcionárie: ");
+					objeto.setNome(scan.next());
+					System.out.println("\nDigite a idade do funcionárie: ");
+					objeto.setIdade(scan.nextInt());
+					System.out.println("\nDigite o CPF do funcionárie: ");
+					objeto.setCpf(scan.next());
+					System.out.println("\nDigite o telefone do funcionárie: ");
+					objeto.setTelefone(scan.next());
+					System.out.println("\nDigite o setor do funcionárie: ");
+					objeto.setSetor(scan.next());
+					System.out.println("\nDigite o salário do funcionárie: ");
+					objeto.setSalario(scan.nextDouble());
+					listaF.remove(index);
+					listaF.add(objeto);
+					System.out.println("Alterado com sucesso");
+					break;
+				} else if (i != 1 && i != 2) {
+					System.out.println("\nOpção inválida.");
+				}
+			} catch (InputMismatchException ex) {
+				System.err.println("Caractere não válido, digite um número.");
+				continue;
+			}
+		}
+
 	}
 
 	public String getSetor() {

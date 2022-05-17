@@ -1,0 +1,89 @@
+package Classes;
+
+import java.util.List;
+import java.util.Scanner;
+
+public class Doador extends Pessoa {
+	private String tipoLivro;
+	private int qtdLivro;
+	private String nomeLivro;
+
+	public Doador(int idPessoa, String nome, int idade, String cpf, String telefone, String tipoLivro, int qtdLivro,
+			String nomeLivro) {
+		super(idPessoa, nome, idade, cpf, telefone);
+		this.tipoLivro = tipoLivro;
+		this.qtdLivro = qtdLivro;
+		this.nomeLivro = nomeLivro;
+	}
+
+	public Doador() {
+		super();
+		this.tipoLivro = null;
+		this.qtdLivro = 0;
+		this.nomeLivro = null;
+	}
+
+	public void cadastrar(Doador objeto, List<Doador> listaD) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("\nDigite o id do doadore: ");
+		objeto.setIdPessoa(scan.nextInt());
+		System.out.println("\nDigite o nome do doadore: ");
+		objeto.setNome(scan.next());
+		System.out.println("\nDigite a idade do doadore: ");
+		objeto.setIdade(scan.nextInt());
+		System.out.println("\nDigite o CPF do doadore: ");
+		objeto.setCpf(scan.next());
+		System.out.println("\nDigite o telefone do doadore: ");
+		objeto.setTelefone(scan.next());
+		System.out.println("\nDigite o nome do livro: ");
+		objeto.setNomeLivro(scan.next());
+		System.out.println("\nDigite o tipo do livro: ");
+		objeto.setTipoLivro(scan.next());
+		System.out.println("\nDigite a quantidade de livros nesta doação: ");
+		objeto.setQtdLivro(scan.nextInt());
+		listaD.add(objeto);
+	}
+
+
+	public void consultar(List<Doador> listaD, int index) {
+		index--;
+		System.out.println("-----------------------------------------");
+		System.out.println("\nId do doadore: "+listaD.get(index).getIdPessoa()+"\nNome do doadore: " + listaD.get(index).getNome() + "\nIdade do doadore: " + listaD.get(index).getIdade()+"\nCPF do doadore: " + listaD.get(index).getCpf() + "\nTelefone do doadore: " + listaD.get(index).getTelefone() + "\nNome do livro: "+listaD.get(index).getNomeLivro()+"\nTipo de livro: "+listaD.get(index).getTipoLivro()+"\nQuantidade de livros: "+listaD.get(index).getQtdLivro());
+		System.out.println("-----------------------------------------");
+	}
+
+	public void listar(List<Doador> listaD) {
+		for(Doador in: listaD) {
+			System.out.println("-----------------------------------------");
+			System.out.println("Id: "+in.getIdPessoa());
+			System.out.println("Nome: "+in.getNome());
+			System.out.println("Idade: "+in.getIdade());
+			System.out.println("Telefone: "+in.getTelefone());
+			System.out.println("-----------------------------------------");
+		}
+	}
+	public String getTipoLivro() {
+		return tipoLivro;
+	}
+
+	public void setTipoLivro(String tipoLivro) {
+		this.tipoLivro = tipoLivro;
+	}
+
+	public int getQtdLivro() {
+		return qtdLivro;
+	}
+
+	public void setQtdLivro(int qtdLivro) {
+		this.qtdLivro = qtdLivro;
+	}
+
+	public String getNomeLivro() {
+		return nomeLivro;
+	}
+
+	public void setNomeLivro(String nomeLivro) {
+		this.nomeLivro = nomeLivro;
+	}
+
+}

@@ -1,0 +1,37 @@
+package Classes;
+
+import java.util.List;
+import java.util.Scanner;
+
+public class decidir {
+	public void dLista(int x, List<Aluno> listaA,List<Doador> listaD,List<Funcionario> listaF,List<Livro> listaL) {
+		Scanner scan = new Scanner (System.in);
+		do {
+			System.out.println("\nEscolha uma opção de listar entre 1 à 4.\n" + "1-Listar Alunes.\n"
+					+ "2-Listar Doadores.\n" + "3-Listar Funcionáries.\n" + "4-Listar Livro.\n"
+					+ "0-Voltar.\n");
+			x = scan.nextInt();
+			switch (x) {
+			case 1:
+				Aluno oAluno = new Aluno();
+				oAluno.listar(listaA);
+				break;
+			case 2:
+				Doador oDoador = new Doador();
+				oDoador.listar(listaD);
+				break;
+			case 3:
+				Funcionario oFuncionario = new Funcionario();
+				oFuncionario.listar(listaF);
+				break;
+			case 4:
+				Livro oLivro = new Livro();
+				oLivro.listar(listaL);
+				break;
+			default:
+				if (x != 0)
+					System.out.println("Opção inválida!");
+			}
+		} while (x != 0);
+	}
+}

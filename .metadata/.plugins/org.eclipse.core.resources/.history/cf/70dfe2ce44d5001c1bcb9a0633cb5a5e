@@ -1,0 +1,46 @@
+package Classes;
+
+import java.util.Scanner;
+
+public class MenuFunc2 {
+	public static void main(String args[]) {
+
+		String nome;
+		int x = 0;
+		int numero;
+		Scanner leia = new Scanner(System.in);
+		System.out.println("\n****Menu do Funcionário****");
+		System.out.println("\nEscolha uma opção de cadastramento entre 1 à 4.\n" + "1-Cadastro do Alune.\n"
+				+ "2-Cadastro do Doador.\n" + "3-Cadastro do Funcionário.\n" + "4-Cadastro do Livro.\n");
+		x = leia.nextInt();
+		switch(x) {
+		case 1:
+		case 2:
+			System.out.println("\nCadastrar Doador");
+			switch (x) {
+			case 1:
+				System.out.println(
+						"Nome do Doador: \n" + "Idade do Doaodr: \n" + "CPF do Doador: \n" + "Telefone do Doador: \n");
+				break;
+			}
+		} else if (x == 3) {
+			System.out.println("\nCadastrar Funcionário");
+			switch (x) {
+			case 1:
+				System.out.println("Nome do Funcionário: \n" + "Idade do Funcionário: \n" + "CPF do Funcionário: \n"
+						+ "Telefone do Funcionário: \n");
+				break;
+			}
+		} else if (x == 4) {
+			System.out.println("\nCadastrar Livro");
+			switch (x) {
+			case 1:
+				System.out.println("Nome do Livro: \n" + "Ano de publicação: \n" + "Editora: \n" + "Autor: \n");
+				break;
+			}
+		} else {
+			System.out.println("\nErro no programa!!!");
+		}
+	}
+
+}

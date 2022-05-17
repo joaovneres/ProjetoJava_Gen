@@ -1,0 +1,15 @@
+package Classes;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Teste {
+	public static void main(String[] args) {
+		Aluno p = new Aluno();
+		p.setNome("A");
+		List<Aluno> list = new ArrayList<Aluno>();
+		list.add(p);
+		p.getNome (); // o nome é A
+		System.out.println(list.get(0).getNome());
+	}
+}

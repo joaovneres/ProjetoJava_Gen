@@ -1,0 +1,29 @@
+package Classes;
+
+public class decidir {
+	public void dLista(int x, Aluno objeto, Aluno objeto, Aluno objeto, Aluno objeto,) {
+		do {
+			System.out.println("\nEscolha uma opção de listar entre 1 à 4.\n" + "1-Listar Alunes.\n"
+					+ "2-Listar Doadores.\n" + "3-Listar Funcionáries.\n" + "4-Listar Livro.\n"
+					+ "0-Voltar.\n");
+			x = scan.nextInt();
+			switch (x) {
+			case 1:
+				oAluno.listar(listaA);
+				break;
+			case 2:
+				oDoador.listar(listaD);
+				break;
+			case 3:
+				oFuncionario.listar(listaF);
+				break;
+			case 4:
+				oLivro.listar(listaL);
+				break;
+			default:
+				if (x != 0)
+					System.out.println("Opção inválida!");
+			}
+		} while (x != 0);
+	}
+}
